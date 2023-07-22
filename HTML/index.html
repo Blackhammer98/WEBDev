@@ -7,24 +7,44 @@
     <title>Document</title>
     
     <style>
-       .box{
-        height: 100px;
-        width: 100px;
-        background-color: red;
-        border: 2px solid green;
-        padding: 2px;
+       
+      .box{
         box-sizing: border-box;
-       }
-
-   
+        border: 3px solid green;
+        margin: 20px;
+      }
+      .block{
+       display: block;
+       height: 300px;
+       width: 600px;
+      }
+      .inline{
+        display: inline;
+      }
+      .inlineBlock{
+        display: inline-block;
+        border: 3px solid gold;
+      }
+      .hidden{
+        display: none;
+      }
     </style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="box">
-           <p>hjfkjsbfjk</p>
-    </div>
-   
+    <div class="box block">
+           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque corporis quia ducimus illo fugit dignissimos blanditiis laborum quam soluta quo.
+   </div>
+   <div class="box inline">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+   </div>
+   <div class="box inlineBlock">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas labore necessitatibus deserunt,
+   </div>
+   <div class="box hidden">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas labore necessitatibus deserunt,
+ </div>
+
 </body>
 </html>
