@@ -1,29 +1,29 @@
-function getUsers(afterFetchingUsers){
+// function getUsers(afterFetchingUsers){
 
-  console.log("returning promise in pending state");
+//   console.log("returning promise in pending state");
 
-  return new Promise((resolve,reject)=>{
+//   return new Promise((resolve,reject)=>{
 
   
-  console.log("executing  logic inside promise ");
+//   console.log("executing  logic inside promise ");
   
 
-    setTimeout(()=>{
+//     setTimeout(()=>{
      
         
-       users=[ 
-        {name: "nikit", email:"nk@gmail.com"},
-       {name: "Kashish", email: "ks@yahoo.com"} 
-    ] ;
+//        users=[ 
+//         {name: "nikit", email:"nk@gmail.com"},
+//        {name: "Kashish", email: "ks@yahoo.com"} 
+//     ] ;
 
-   resolve(users);
-   //reject("something went wrong")
+//    resolve(users);
+//    //reject("something went wrong")
 
-    },2000)
-  })
-}
+//     },2000)
+//   })
+// }
 
-const requiredName="nikit";
+// const requiredName="nikit";
 
 
 
@@ -32,27 +32,27 @@ const requiredName="nikit";
 
   
      
-  const promise = getUsers()
+//   const promise = getUsers()
 
-  promise.then((users)=>{
+//   promise.then((users)=>{
    
-      const user=users.find(user=>user.name===requiredName);
+//       const user=users.find(user=>user.name===requiredName);
 
-      console.log(user);
-  })
-  .catch((err) =>{
+//       console.log(user);
+//   })
+//   .catch((err) =>{
   
-    console.log("promise is rejected with err",err);
-    })
-  //when multiple then being used it is called promise chaining which is shown below:
-  .then((data)=>{
-   console.log(data);
-  })
+//     console.log("promise is rejected with err",err);
+//     })
+//   //when multiple then being used it is called promise chaining which is shown below:
+//   .then((data)=>{
+//    console.log(data);
+//   })
   
-  .catch((err) =>{
+//   .catch((err) =>{
   
-    console.log("promise is rejected with err",err);
-    })
+//     console.log("promise is rejected with err",err);
+//     })
 
   //to avoid callback hell we use or js introduce promise
 
@@ -77,3 +77,27 @@ const requiredName="nikit";
   //consuming a promise
 
   //promiseObj.then(onFullfilled,onRejected);
+
+
+  const isRequestSuccesful= true;
+
+  const db =[
+    {name: "nikit", email:"nk@gmail.com"},
+         {name: "Kashish", email: "ks@yahoo.com"} 
+  ]
+let promise = new Promise((resolve, reject) => {
+    if(isRequestSuccesful){
+     setTimeout(()=>resolve(db)
+     ,3000);
+    }
+    else{
+      const error = new Error("Something went wrong");
+      reject(error.message);
+
+    }
+});
+
+promise.then((response)=> console.log(response))
+
+.catch(( err )=> console.log(err))
+;
