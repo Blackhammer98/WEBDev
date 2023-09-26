@@ -17,13 +17,13 @@ background-color: black;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2PX;
+    gap: 5PX;
 }
 
 header form{
     border: 3px solid red;
      width: 30%;
-     min-width: 100px;
+     min-width: 200px;
      height:40px
  
 }
