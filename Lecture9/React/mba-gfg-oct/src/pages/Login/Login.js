@@ -1,12 +1,27 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import"./Login.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { login } from '../../api/auth';
 import { useNavigate } from 'react-router-dom';
 
 function Login(){
     const navigate=useNavigate();
+
+    useEffect(()=>{
+        const email = localStorage.getItem("email");
+        const name = localStorage.getItem("name");
+        const token = localStorage.getItem("token");
+
+        if (email && name && token) {
+           navigate(-1);
+        }
+
+    },[])
+
+   
+
+
 
     const [userId,setUserId]= useState("");
     const [password, setPassword] = useState("");
@@ -28,6 +43,14 @@ function Login(){
 
         try{
          const response = await login({userId,password});
+
+          const{accessToken,name,email,userStatus,userTypes}=response.data;
+          localStorage.setItem("token",accessToken);
+            localStorage.setItem("name",name);
+            localStorage.setItem("userId",userId );
+            localStorage.setItem("email",email);
+            localStorage.setItem("userStatus",userStatus);
+            localStorage.setItem("userTypes",userTypes);
          navigate("/")
         }
          catch(e){
